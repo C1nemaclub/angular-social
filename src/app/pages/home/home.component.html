@@ -1,0 +1,56 @@
+<section class="section home-section">
+  <app-sidebar></app-sidebar>
+  <div class="main-content">
+    <div class="center">
+      <button pButton (click)="toggleNewPost()">
+        <i class="pi pi-plus"></i>
+        <p>New Post</p>
+      </button>
+      <div class="posts">
+        <app-post
+          *ngFor="let post of posts"
+          [post]="post"
+          [user]="user"
+        ></app-post>
+      </div>
+    </div>
+    <div class="right">
+      <div class="container">
+        <h2>Discover</h2>
+        <div class="users"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<p-dialog header="New Post" [(visible)]="displayNewPost">
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()">
+      <span class="p-float-label input-group">
+        <textarea
+          pInputTextarea
+          [autoResize]="true"
+          [rows]="4"
+          [cols]="40"
+          name="description"
+          [required]="true"
+          id="float-input"
+          [(ngModel)]="description"
+        ></textarea>
+
+        <label for="float-input">Description</label>
+      </span>
+      <span class="input-group">
+        <p-fileUpload
+          name="demo[]"
+          accept="image/*"
+          [maxFileSize]="maxFileSize"
+          [auto]="true"
+          [customUpload]="true"
+          (uploadHandler)="onFileChange($event)"
+        ></p-fileUpload>
+      </span>
+      <input pButton type="submit" class="submit-btn" />
+    </form>
+  </div>
+</p-dialog>
+<p-toast></p-toast>

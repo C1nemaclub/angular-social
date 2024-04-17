@@ -1,0 +1,50 @@
+<section class="section profile-section">
+  <app-sidebar></app-sidebar>
+  <div class="main-content">
+    <div class="center">
+      <div class="avatar-container" (click)="toggleAvatarModal()">
+        <img
+          src="http://localhost:4000/avatar/{{ user.avatar }}"
+          alt="avatar"
+          class="avatar"
+        />
+        <label class="overlay">
+          <span>Change Avatar</span>
+          <input
+            type="file"
+            name="image"
+            placeholder="Browse"
+            class="hideme"
+            (change)="onFileChange($event)"
+          />
+        </label>
+      </div>
+      <div class="info">
+        <h1>Profile</h1>
+        <p>{{ user.firstname }} {{ user.lastname }}</p>
+        <p>{{ user.email }}</p>
+      </div>
+      <div class="posts">
+        <p>Posts</p>
+        <span>{{ postAmount }}</span>
+      </div>
+      <button pButton (click)="onSubmit()">Save</button>
+    </div>
+  </div>
+</section>
+
+<!-- <p-dialog header="Change Profile Picture" [(visible)]="displayAvatarModal">
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()">
+      <span class="input-group">
+        <input
+          type="file"
+          name="image"
+          placeholder="Browse"
+          (change)="onFileChange($event)"
+        />
+      </span>
+      <input pButton type="submit" class="submit-btn" />
+    </form>
+  </div>
+</p-dialog> -->

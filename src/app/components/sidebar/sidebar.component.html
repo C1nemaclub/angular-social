@@ -1,0 +1,48 @@
+<div class="sidebar">
+  <nav>
+    <div class="profile">
+      <img
+        src="http://localhost:4000/avatar/{{ user.avatar }}"
+        alt=""
+        class="avatar"
+      />
+      <p class="name" *ngIf="user">{{ user.firstname }}</p>
+    </div>
+    <ul>
+      <li>
+        <a routerLink="/" [ngClass]="{ active: hasRoute('/home') === true }">
+          <i class="pi pi-home"></i>
+          <p>Home</p>
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/profile"
+          [ngClass]="{ active: hasRoute('/profile') === true }"
+        >
+          <i class="pi pi-user"></i>
+          <p>Profile</p>
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/photos"
+          [ngClass]="{ active: hasRoute('/photos') === true }"
+        >
+          <i class="pi pi-image"></i>
+          <p>Photos</p>
+        </a>
+      </li>
+      <li>
+        <a
+          class="settings"
+          routerLink="/settings"
+          [ngClass]="{ active: hasRoute('/settings') === true }"
+        >
+          <i class="pi pi-cog"></i>
+          <p>Settings</p>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

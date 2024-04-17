@@ -1,0 +1,22 @@
+<header>
+  <nav>
+    <a class="logo" routerLink="/home">
+      <img src="../../../assets/Logo.svg" class="logo" alt="logo" />
+      <p>Soziali</p>
+    </a>
+    <div class="right">
+      <img
+        *ngIf="user.avatar"
+        src="http://localhost:4000/avatar/{{ user.avatar }}"
+        class="avatar"
+        alt="avatar"
+      />
+      <button
+        (click)="handleLogout()"
+        pButton
+        class="p-button-warning"
+        label="Logout"
+      ></button>
+    </div>
+  </nav>
+</header>
